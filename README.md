@@ -1,19 +1,5 @@
-# How to use this template repository
-
-This is a template repository, meant to be copied to start a skeleton of other projects. This template provides a few things:
-- build workflow so that a snap is built automatically when a Pull Request (PR) is opened
-- PR template
-- README.md skeleton
-
-A bit about the README.md below:
-- Delete everything in this "How to use this template repository" (everything above the ==== line). 
-- Replace gnome-mines with the name of the snap (ex. gnome-mines).
-- Update any section starting with "TODO" to add the info requested, and remove the TODO line.
-
-========================================================================================
 # gnome-mines
 
-TODO: Add links to badges. Here's the gnome-mines badge links for example:
 *[![gnome-mines](https://snapcraft.io/gnome-mines/badge.svg)](https://snapcraft.io/gnome-mines)
 [![gnome-mines](https://snapcraft.io/gnome-mines/trending.svg?name=0)](https://snapcraft.io/gnome-mines)*
 
