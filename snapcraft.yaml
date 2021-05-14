@@ -1,5 +1,5 @@
 name: gnome-mines
-version: git
+adopt-info: gnome-mines
 summary: Clear hidden mines from a minefield
 description: |
   GNOME Mines is a puzzle game where you search for hidden mines. Flag the
@@ -39,6 +39,9 @@ parts:
   gnome-mines:
     source: https://gitlab.gnome.org/GNOME/gnome-mines.git
     source-type: git
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version $(git describe --tags --abbrev=10)
     override-build: |
       sed -i.bak -e 's|=org.gnome.Mines$|=${SNAP}/meta/gui/org.gnome.Mines.svg|g' data/org.gnome.Mines.desktop.in
       snapcraftctl build
