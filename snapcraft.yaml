@@ -13,7 +13,7 @@ description: |
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict
-base: core20
+base: core22
 
 # Launchpad doesn't recognize these fields yet
 passthrough:
@@ -27,10 +27,14 @@ slots:
     bus: session
     name: org.gnome.Mines
 
+layout:
+  /usr/share/gnome-mines:
+    symlink: $SNAP/usr/share/gnome-mines
+
 apps:
   gnome-mines:
     command: usr/bin/gnome-mines
-    extensions: [ gnome-3-38 ]
+    extensions: [ gnome ]
     desktop: usr/share/applications/org.gnome.Mines.desktop
 
 parts:
@@ -39,17 +43,18 @@ parts:
     source-type: git
     source-tag: '40.1'
     plugin: meson
-    meson-parameters: [ --prefix=/snap/gnome-mines/current/usr ]
+    meson-parameters:
+      - --prefix=/usr
+      - --buildtype=release
     override-pull: |
-      snapcraftctl pull
-      snapcraftctl set-version $(git describe --tags --abbrev=10)
+      craftctl default
+      craftctl set version=$(git describe --tags --abbrev=10)
     override-build: |
-      sed -i.bak -e 's|=org.gnome.Mines$|=${SNAP}/meta/gui/org.gnome.Mines.svg|g' $SNAPCRAFT_PART_SRC/data/org.gnome.Mines.desktop.in
-      snapcraftctl build
-      mkdir -p $SNAPCRAFT_PART_INSTALL/meta/gui/
-      cp ../src/data/icons/hicolor/scalable/org.gnome.Mines.svg $SNAPCRAFT_PART_INSTALL/meta/gui/
-      cp ../install/snap/gnome-mines/current/usr/share/applications/org.gnome.Mines.desktop $SNAPCRAFT_PART_INSTALL/meta/gui/
-    organize:
-      snap/gnome-mines/current/usr: usr
+      sed -i.bak -e 's|=org.gnome.Mines$|=${SNAP}/meta/gui/org.gnome.Mines.svg|g' $CRAFT_PART_SRC/data/org.gnome.Mines.desktop.in
+      craftctl default
+      mkdir -p $CRAFT_PART_INSTALL/meta/gui/
+      cp ../src/data/icons/hicolor/scalable/org.gnome.Mines.svg $CRAFT_PART_INSTALL/meta/gui/
+      cp ../install/usr/share/applications/org.gnome.Mines.desktop $CRAFT_PART_INSTALL/meta/gui/
     build-packages:
       - libxml2-utils
+      - libc6-dev
