@@ -43,6 +43,7 @@ parts:
     source-type: git
     source-tag: '40.1'
     plugin: meson
+    parse-info: [usr/share/metainfo/org.gnome.Mines.appdata.xml]
     meson-parameters:
       - --prefix=/usr
       - --buildtype=release
@@ -53,8 +54,8 @@ parts:
       sed -i.bak -e 's|=org.gnome.Mines$|=${SNAP}/meta/gui/org.gnome.Mines.svg|g' $CRAFT_PART_SRC/data/org.gnome.Mines.desktop.in
       craftctl default
       mkdir -p $CRAFT_PART_INSTALL/meta/gui/
-      cp ../src/data/icons/hicolor/scalable/org.gnome.Mines.svg $CRAFT_PART_INSTALL/meta/gui/
-      cp ../install/usr/share/applications/org.gnome.Mines.desktop $CRAFT_PART_INSTALL/meta/gui/
+      cp $CRAFT_PART_SRC/data/icons/hicolor/scalable/org.gnome.Mines.svg $CRAFT_PART_INSTALL/meta/gui/
+      cp $CRAFT_PART_INSTALL/usr/share/applications/org.gnome.Mines.desktop $CRAFT_PART_INSTALL/meta/gui/
     build-packages:
       - libxml2-utils
       - libc6-dev
