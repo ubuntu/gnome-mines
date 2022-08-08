@@ -58,4 +58,3 @@ parts:
       cp $CRAFT_PART_INSTALL/usr/share/applications/org.gnome.Mines.desktop $CRAFT_PART_INSTALL/meta/gui/
     build-packages:
       - libxml2-utils
-      - libc6-dev
