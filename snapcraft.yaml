@@ -15,6 +15,9 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict
 base: core22
 
+build-snaps:
+  - gnome-42-2204/latest/candidate
+
 # Launchpad doesn't recognize these fields yet
 passthrough:
   license: GPL-3.0+
@@ -39,9 +42,11 @@ apps:
 
 parts:
   gnome-mines:
+# ext:updatesnap
     source: https://gitlab.gnome.org/GNOME/gnome-mines.git
     source-type: git
     source-tag: '40.1'
+    source-depth: 1
     plugin: meson
     parse-info: [usr/share/metainfo/org.gnome.Mines.appdata.xml]
     meson-parameters:
