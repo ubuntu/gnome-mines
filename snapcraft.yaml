@@ -13,10 +13,7 @@ description: |
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict
-base: core22
-
-build-snaps:
-  - gnome-42-2204/latest/candidate
+base: core24
 
 # Launchpad doesn't recognize these fields yet
 passthrough:
@@ -62,3 +59,6 @@ parts:
       cp $CRAFT_PART_SRC/data/icons/hicolor/scalable/org.gnome.Mines.svg $CRAFT_PART_INSTALL/meta/gui/
     build-packages:
       - libxml2-utils
+      - libgnome-games-support-1-dev
+    stage-packages:
+      - libgnome-games-support-1-3
