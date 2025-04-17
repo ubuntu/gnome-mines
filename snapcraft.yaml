@@ -42,7 +42,7 @@ parts:
 # ext:updatesnap
     source: https://gitlab.gnome.org/GNOME/gnome-mines.git
     source-type: git
-    source-tag: '40.1'
+    source-tag: '48.1'
     source-depth: 1
     plugin: meson
     parse-info: [usr/share/metainfo/org.gnome.Mines.appdata.xml]
