@@ -45,7 +45,7 @@ parts:
     source-tag: '48.1'
     source-depth: 1
     plugin: meson
-    parse-info: [usr/share/metainfo/org.gnome.Mines.appdata.xml]
+    parse-info: [usr/share/metainfo/org.gnome.Mines.metainfo.xml]
     meson-parameters:
       - --prefix=/usr
       - --buildtype=release
@@ -59,6 +59,6 @@ parts:
       cp $CRAFT_PART_SRC/data/icons/hicolor/scalable/org.gnome.Mines.svg $CRAFT_PART_INSTALL/meta/gui/
     build-packages:
       - libxml2-utils
-      - libgnome-games-support-1-dev
+      - libgnome-games-support-dev
     stage-packages:
-      - libgnome-games-support-1-3
+      - libgnome-games-support-2-4
