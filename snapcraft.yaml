@@ -57,8 +57,3 @@ parts:
       craftctl default
       mkdir -p $CRAFT_PART_INSTALL/meta/gui/
       cp $CRAFT_PART_SRC/data/icons/hicolor/scalable/org.gnome.Mines.svg $CRAFT_PART_INSTALL/meta/gui/
-    build-packages:
-      - libxml2-utils
-      - libgnome-games-support-dev
-    stage-packages:
-      - libgnome-games-support-2-4
